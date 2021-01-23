@@ -32,7 +32,6 @@ jobs:
       env: 
         CONFIG_ID: ${{ secrets.CONFIG_ID }} # secrets_id 提供
         CONFIG_KEY: ${{ secrets.CONFIG_KEY }} # secrets_key 提供
-        CONFIG_RTOKEN: ${{ secrets.CONFIG_RTOKEN }} # rtoken提供
       run: | 
         cp 1.py 2.py
         echo $CONFIG_ID > configid.txt
@@ -47,7 +46,7 @@ jobs:
       run: | 
         rm -f 2.py
         rm -f configid.txt
-        rm -f configkey.txt    
+        rm -f configkey.txt
     - name: Commit #上传新的refresh_token到仓库
       run: |
         git config --global user.email AutoupdateRobot@email.com
