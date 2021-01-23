@@ -32,9 +32,12 @@ def gettoken(refresh_token):
         f.write(refresh_token)
     return access_token
 def main():
+    fo = open(path, "r+")
+    refresh_token = fo.read()
+    fo.close()
     global num1
     localtime = time.asctime( time.localtime(time.time()) )
-    access_token=gettoken(rtoken)
+    access_token=gettoken(refresh_token)
     headers={
     'Authorization':access_token,
     'Content-Type':'application/json'
